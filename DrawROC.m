@@ -1,0 +1,22 @@
+clc;
+clear;
+close all;
+load('G:\毕业设计\BiShe_Matlab\BackUp\6x600x1000\TPR_FPR(10).mat');
+tpr10 = tpr;fpr10 = fpr;
+load('G:\毕业设计\BiShe_Matlab\BackUp\6x600x1000\TPR_FPR(50).mat');
+tpr50 = tpr;fpr50 = fpr;
+load('G:\毕业设计\BiShe_Matlab\BackUp\6x600x1000\TPR_FPR(100).mat');
+tpr100 = tpr;fpr100 = fpr;
+load('G:\毕业设计\BiShe_Matlab\BackUp\6x600x1000\TPR_FPR(150).mat');
+tpr150 = tpr;fpr150 = fpr;
+figure;
+plot(fpr10, tpr10, '-', 'LineWidth',1.5);
+hold on
+plot(fpr50, tpr50, ':', 'LineWidth',1.5);
+plot(fpr100, tpr100, '--', 'LineWidth',1.5);
+plot(fpr150, tpr150, '-.', 'LineWidth',1.5);
+legend('T=10','T=50','T=100','T=150');
+title('ROC curve for Face-Detection with Adaboost');
+xlabel('False positive rate');
+ylabel('True positive rate');
+saveas(gcf,'G:\毕业设计\BiShe_Matlab\Result\ROC1.jpg');
